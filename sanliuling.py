@@ -3,6 +3,7 @@ from requests.packages import urllib3
 import requests
 import re
 import os
+from urllib.parse import urlparse
 
 def subdomainsearch_360(domain):
     def danyedayin(zhuyuming,changdu):#搜索出的单页结果打印
@@ -10,10 +11,10 @@ def subdomainsearch_360(domain):
         try:
             urllib3.disable_warnings()#消除证书认证告警
             response=requests.get(url,verify=False,timeout=5).content.decode('utf-8')
-            subdomain=re.findall('<cite>(.*?).com',response)
+            subdomain=re.findall('<cite>(.*?)</cite>',response)
             i = 0
             while i < len(subdomain):
-                fo.write(subdomain[i]+"\n")
+                fo.write(re.findall('[a-zA-Z\.0-9]+(?=\/)',subdomain[i])[0]+"\n")
                 i = i + 1
             return
         except:
@@ -32,7 +33,7 @@ def subdomainsearch_360(domain):
         myfile = open(filename)
         lines = len(myfile.readlines())
         myfile.close()
-        print("Total found  %s IPS." % (lines))
+        print("360 total found  %s IPS." % (lines))
     #360域名匹配的特殊处理，给域名后面加上  .com
     def jiacom():
         f = open("360_jiguoIP.txt", "r")

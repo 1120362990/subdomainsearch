@@ -32,7 +32,7 @@ def subdomainsearch_baidu(domain):
         myfile = open(filename)
         lines = len(myfile.readlines())
         myfile.close()
-        print("Total found  %s IPS." % (lines))
+        print("Baidu total found  %s IPS." % (lines))
     #主流程
     zhuyuming = domain
     shoujigshu = 100
@@ -46,7 +46,7 @@ def subdomainsearch_baidu(domain):
     fo.close()
     wnjianqucong()
     wnjianhangshu()
-    os.remove('baidu_foo.txt')
+    os.remove()
 
 
 if __name__ == "__main__":

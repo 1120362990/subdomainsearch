@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 import crt
 import sanliuling
-import sanliulinge
-import bingguonei
-import bingguoji
 import baidu
 import threading
 import os
 
 def subdomainsearch_main(domain):
     print('statrt')
-    modules = [crt.subdomainsearch_crt,sanliuling.subdomainsearch_360,sanliulinge.subdomainsearch_360e,bingguonei.subdomainsearch_bing_guonei,bingguoji.subdomainsearch_bing_guoji,baidu.subdomainsearch_baidu]
+    modules = [crt.subdomainsearch_crt,sanliuling.subdomainsearch_360,baidu.subdomainsearch_baidu]
     nmodules = range(len(modules))
     threads = []   #这个类似于一个线程池
     for module in modules:
@@ -22,7 +19,7 @@ def subdomainsearch_main(domain):
         threads[i].join()   #阻塞，直到线程结束。守护进程不需要启用这一项
 
     domains = []
-    txts = ['360_jieguo.txt','360e_jieguo.txt','baidu_jiguoIP.txt','bing_guoji_jiguoIP.txt','bing_guonei_jiguoIP.txt','crt_jieguo.txt']
+    txts = ['360_jieguo.txt','baidu_jiguoIP.txt','crt_jieguo.txt']
     for txt in txts:
         for lines in open(txt,"r"):
             if lines.strip() not in domains:
@@ -36,4 +33,4 @@ def subdomainsearch_main(domain):
     print('all done')
 
 if __name__ == "__main__":
-    subdomainsearch_main('xxx.com')
+    subdomainsearch_main('xxx.net')

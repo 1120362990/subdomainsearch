@@ -46,7 +46,7 @@ def subdomainsearch_baidu(domain):
     fo.close()
     wnjianqucong()
     wnjianhangshu()
-    os.remove()
+    os.remove('baidu_foo.txt')
 
 
 if __name__ == "__main__":

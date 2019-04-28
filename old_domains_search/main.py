@@ -33,4 +33,4 @@ def subdomainsearch_main(domain):
     print('all done')
 
 if __name__ == "__main__":
-    subdomainsearch_main('xxx.net')
+    subdomainsearch_main('xxxx.com')

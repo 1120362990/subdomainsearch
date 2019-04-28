@@ -23,7 +23,7 @@ def subdomainsearch_crt(domain):
                 op.write(soup.find_all('tr')[num].find_all('td')[4].get_text().strip()+'\n')  #正常的域名写入到txt中
                 finds.append(soup.find_all('tr')[num].find_all('td')[4].get_text().strip())
     op.close()
-    print('all done')
+    print('crt all done')
 
 if __name__ == "__main__":
     subdomainsearch_crt()

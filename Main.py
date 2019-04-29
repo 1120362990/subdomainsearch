@@ -12,4 +12,4 @@ class Program(object):
 
 
 if __name__ == "__main__":
-    Program('feei.cn')  # thanks for feei.com  :)
+    Program('xxx.com')  # thanks for feei.com  :)

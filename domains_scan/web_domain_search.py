@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 class Web_Domain_Search(object):
     def __init__(self, url):
         self.url = url
+        # self.result
 
         def subdomainsearch_baidu(domain):
             print('[+]Baidu search domains start!', time.asctime(time.localtime(time.time())))
@@ -33,7 +34,8 @@ class Web_Domain_Search(object):
                 changdu = str(o*10)
                 danyedayin(domain, changdu)
                 o = o + 1
-            print('[-]Baidu search domains is done!', time.asctime(time.localtime(time.time())),domains_baidu)
+            print('[-]Baidu search domains is done!', time.asctime(time.localtime(time.time())))
+            # print('baidu',domains_baidu)
             return(domains_baidu)
 
         def subdomainsearch_crt(domain):
@@ -46,7 +48,8 @@ class Web_Domain_Search(object):
             domains_crt = []  # 找到的域名存放区，用来检测去重
             for num in range(3, len(soup.find_all('tr'))):
                 domains_crt.append(soup.find_all('tr')[num].find_all('td')[4].get_text().strip())
-            print('[-]Crt search domains is done!', time.asctime(time.localtime(time.time())), domains_crt)
+            print('[-]Crt search domains is done!', time.asctime(time.localtime(time.time())))
+            # print('crt',domains_crt)
             return(domains_crt)
 
 
@@ -56,5 +59,5 @@ class Web_Domain_Search(object):
         for x in technology:
             for y in x:
                 domains.append(y)
-        # print(domains)
         print('[-]Domains search is done! Found', len(domains), '!', time.asctime(time.localtime(time.time())))
+        self.result = domains

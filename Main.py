@@ -7,9 +7,9 @@ class Program(object):
     def __init__(self, url):
         self.path = (os.path.dirname(os.path.realpath(__file__)))
         self.url = url
-        self.domains = Domains_Scan(self.url)
+        self.domains = Domains_Scan(self.url, self.path)
         # print(self.url)
 
 
 if __name__ == "__main__":
-    Program('xxx.com')  # thanks for feei.com  :)
+    Program('feei.cn')  # thanks for feei.cn  :)

@@ -30,7 +30,7 @@ class Web_Domain_Search(object):
                     pass
             # 主流程
             o = 0
-            while o < 10:  # set page numbers . there is 100
+            while o < 100:  # set page numbers . there is 100
                 changdu = str(o*10)
                 danyedayin(domain, changdu)
                 o = o + 1

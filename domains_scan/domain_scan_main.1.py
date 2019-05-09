@@ -2,6 +2,19 @@
 from ESD import EnumSubDomain
 from .web_domain_search import Web_Domain_Search
 import os
+import threading
+
+
+class MyThread(threading.Thread):
+    def __init__(self, func, *args):
+        super().__init__()
+        self.func = func
+        self.args = args
+        self.setDaemon(True)
+        self.start()    # 在这里开始
+
+    def run(self):
+        self.func(*self.args)
 
 
 class Domains_Scan(object):
@@ -48,9 +61,9 @@ class Domains_Scan(object):
         # subDomainsBrute_search()
 
         # start
-        subDomainsBrute_search()#url1
-        esd_search()#url3
-        web_search()#url2
+        MyThread(subDomainsBrute_search())#url1
+        MyThread(esd_search())#url3
+        MyThread(web_search())#url2
 
         domains_all = []
         # technology = [self.url2]

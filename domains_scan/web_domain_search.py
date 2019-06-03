@@ -31,6 +31,7 @@ class Web_Domain_Search(object):
             # 主流程
             o = 0
             while o < 100:  # set page numbers . there is 100
+                print(o ,'/100')
                 changdu = str(o*10)
                 danyedayin(domain, changdu)
                 o = o + 1
@@ -55,7 +56,23 @@ class Web_Domain_Search(object):
 
         #  deal , threading
         domains = []
-        technology = [subdomainsearch_baidu(self.url),subdomainsearch_crt(self.url)]
+        technology  = []
+
+        try:
+            a = subdomainsearch_baidu(self.url)
+            technology .append(a)
+        except Exception:
+            print('[-]Baidu error!')
+            pass
+        try:
+            b = subdomainsearch_crt(self.url)
+            technology .append(b)
+        except Exception:
+            print('[-]CRT error!')
+            pass
+
+
+        # technology = [subdomainsearch_baidu(self.url),subdomainsearch_crt(self.url)]
         for x in technology:
             for y in x:
                 domains.append(y)

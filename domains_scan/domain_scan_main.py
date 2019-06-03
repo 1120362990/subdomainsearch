@@ -18,7 +18,6 @@ class Domains_Scan(object):
                 self.url1 = Esddomains
             except Exception:
                 print('ESD error!')
-        # esd_search()
 
         # start web_domains_search
         def web_search():
@@ -27,13 +26,12 @@ class Domains_Scan(object):
                 self.url2 = Web_domains.result
             except Exception:
                 print('Web_Domain_Search error!')
-        # web_search()
 
         # start subDomainsBrute_domain_search
         def subDomainsBrute_search():
             try:
                 os.chdir(self.path+'/domains_scan/subDomainsBrute')
-                os.system(f'python2 subDomainsBrute.py {self.url}')
+                os.system(f'python2.7  subDomainsBrute.py {self.url}')
                 try:
                     subDomainsBrute_urls = []
                     with open(f'{self.url}.txt', 'r', encoding  = 'utf-8') as f:
@@ -45,12 +43,11 @@ class Domains_Scan(object):
                     pass
             except Exception:
                 print('ubDomainsBrute_search error!')
-        # subDomainsBrute_search()
 
         # start
-        subDomainsBrute_search()#url1
-        esd_search()#url3
-        web_search()#url2
+        subDomainsBrute_search()#url3
+        esd_search()  # url1
+        web_search()  # url2
 
         domains_all = []
         # technology = [self.url2]

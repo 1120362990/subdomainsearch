@@ -40,9 +40,9 @@ class Domains_Scan(object):
                     os.system(f'rm -rf {self.url}.txt')
                     self.url3 = subDomainsBrute_urls
                 except Exception:
+                    self.url3 = []
                     pass
             except Exception:
-                self.url3 = []
                 print('ubDomainsBrute_search error!')
 
         # start

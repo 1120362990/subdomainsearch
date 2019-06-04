@@ -42,6 +42,7 @@ class Domains_Scan(object):
                 except Exception:
                     pass
             except Exception:
+                self.url3 = []
                 print('ubDomainsBrute_search error!')
 
         # start

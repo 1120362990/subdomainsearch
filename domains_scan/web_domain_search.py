@@ -36,7 +36,7 @@ class Web_Domain_Search(object):
                 danyedayin(domain, changdu)
                 o = o + 1
             print('[-]Baidu search domains is done!', time.asctime(time.localtime(time.time())))
-            # print('baidu',domains_baidu)
+            print('baidu',domains_baidu)
             return(domains_baidu)
 
         def subdomainsearch_crt(domain):
@@ -50,7 +50,7 @@ class Web_Domain_Search(object):
             for num in range(3, len(soup.find_all('tr'))):
                 domains_crt.append(soup.find_all('tr')[num].find_all('td')[4].get_text().strip())
             print('[-]Crt search domains is done!', time.asctime(time.localtime(time.time())))
-            # print('crt',domains_crt)
+            print('crt',domains_crt)
             return(domains_crt)
 
 

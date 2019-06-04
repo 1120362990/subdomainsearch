@@ -46,13 +46,24 @@ class Domains_Scan(object):
                 print('ubDomainsBrute_search error!')
 
         # start
-        subDomainsBrute_search()#url3
-        esd_search()  # url1
-        web_search()  # url2
+        try:
+            subDomainsBrute_search() # url3
+        except Exception:
+            print('[-]subDomainsBrute_search error!  url3')
+            self.url3 = []
+        try:
+            esd_search()  # url1
+        except Exception:
+            self.url1 = []
+            print('[-]esd_search error! url1')
+        try:
+            web_search()  # url2
+        except Exception:
+            self.url2 = []
+            print('[-]web_seach error! url2')
 
         domains_all = []
-        # technology = [self.url2]
-        technology = [self.url1,self.url2,self.url3]
+        technology = [self.url1, self.url2, self.url3]
         for x in technology:
             for y in x:
                 domains_all.append(y)
